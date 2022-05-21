@@ -1,5 +1,13 @@
-// Меню бургер ===============================================
+// Preloader ======================================================================
+window.onload = function () {
+	document.body.classList.add('loaded_hiding');
+	window.setTimeout(function () {
+		document.body.classList.add('loaded');
+		document.body.classList.remove('loaded_hiding');
+	}, 1500);
+}
 
+// Меню бургер ===============================================
 //Логика скрипта бургера:
 //1. Получаем объект бургер
 //2. Получаем меню, которое нужно открыть
@@ -30,6 +38,7 @@ const animItems = document.querySelectorAll('._anim-items');
 
 if (animItems.length > 0) {
 	window.addEventListener('scroll', animOnScroll);
+
 	function animOnScroll() {
 		for (let index = 0; index < animItems.length; index++) {
 			const animItem = animItems[index];

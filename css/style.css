@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=PT+Sans:regular&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:regular,700&display=swap");
 @import url("http://fonts.cdnfonts.com/css/post-no-bills-jaffna?styles=18991&display=swap");
@@ -81,16 +82,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @font-face {
-  font-family: 'icons';
+  font-family: "icons";
   src: url("../fonts/icons.ttf?u7oaxb") format("truetype"), url("../fonts/icons.woff?u7oaxb") format("woff"), url("../fonts/icons.svg?u7oaxb#icons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="_icon-"]::before, [class*=" _icon-"]::before {
+[class^="_icon-"]::before,
+[class*=" _icon-"]::before {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icons' !important;
+  font-family: "icons" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -121,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   position: relative;
   background-color: #000;
-  font-family: 'PT Sans';
+  font-family: "PT Sans";
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
@@ -166,6 +168,81 @@ body {
   }
 }
 
+.preloader {
+  /*фиксированное позиционирование*/
+  position: fixed;
+  /* координаты положения */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* фоновый цвет элемента */
+  background: #000;
+  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+  z-index: 1001;
+}
+
+.preloader__row {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 1s infinite linear;
+}
+
+.preloader__item {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  background-color: #969696;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.4s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+
+.header {
+  /* .header__container */
+  /* .header__top */
+  /* .header__bottom */
+  /* .header__inner */
+}
+
 .header__container {
   height: 100%;
 }
@@ -184,6 +261,15 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+}
+
+.top-header {
+  /* .top-header_left */
+  /* .top-header_exit */
+  /* .top-header__numb */
+  /* .top-header__desc */
+  /* .top-header__work */
+  /* .top-header__link */
 }
 
 .top-header_left {
@@ -265,6 +351,11 @@ body {
   font-weight: 700;
   font-size: 36px;
   text-transform: uppercase;
+}
+
+.menu {
+  /* .menu__list */
+  /* .menu__link */
 }
 
 .menu__body {
@@ -476,6 +567,10 @@ body {
   padding: 160px 0;
   background: url("../img/intro.jpg") center/cover no-repeat;
   background-attachment: fixed;
+  /* .intro__inner */
+  /* .intro__top */
+  /* .intro__title */
+  /* .intro__sub-title */
 }
 
 .intro__inner {
@@ -587,6 +682,11 @@ body {
   }
 }
 
+.collection {
+  /* .collection__inner */
+  /* .collection__item */
+}
+
 .collection__inner {
   display: flex;
   align-items: center;
@@ -598,6 +698,20 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.item-collection {
+  /* .item-collection__col */
+  /* .item-collection__title */
+  /* .item-collection__inner */
+  /* .item-collection__item */
+  /* .item-collection__img */
+  /* .item-collection__name */
+  /* .item-collection__price */
+  /* .item-collection__btn */
+  /* .item-collection__bg */
+  /* .item-collection__descr */
+  /* .item-collection__text */
 }
 
 .item-collection__col {
@@ -919,6 +1033,9 @@ body {
 
 .new-product {
   padding: 120px 0;
+  /* .new-product__title */
+  /* .new-product__inner */
+  /* .new-product__item */
 }
 
 .new-product__title {
@@ -975,6 +1092,9 @@ body {
 .brends {
   padding: 70px 0;
   background-color: #0f0f0f;
+  /* .brends__title */
+  /* .brends__inner */
+  /* .brends__img */
 }
 
 .brends__title {
@@ -1055,6 +1175,14 @@ body {
   min-height: 400px;
   background: url("../img/footer.jpg") center/cover no-repeat;
   padding: 90px 0;
+  /* .footer__inner */
+  /* .footer__col */
+  /* .footer__title */
+  /* .footer__category */
+  /* .footer__link */
+  /* .footer__form */
+  /* .footer__input */
+  /* .footer__btn */
 }
 
 .footer__inner {
