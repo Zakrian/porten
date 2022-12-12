@@ -5,15 +5,9 @@ window.onload = function () {
 		document.body.classList.add('loaded');
 		document.body.classList.remove('loaded_hiding');
 	}, 1500);
-}
+};
 
-// Меню бургер ===============================================
-//Логика скрипта бургера:
-//1. Получаем объект бургер
-//2. Получаем меню, которое нужно открыть
-//3. Вешаем обработчик события click на бургер (п.1)
-//4. Добавляем (toggle) класс к меню (п.2)
-
+// Меню бургер ====================================================================
 const menuBurger = document.querySelector('.icon-menu');
 const menuBody = document.querySelector('.menu__body');
 
@@ -23,14 +17,14 @@ if (menuBurger) {
 		if (menuBody) {
 			menuBody.classList.toggle('_active-menu');
 		}
-	})
+	});
 }
 
 // Moving DOM-element =============================================================
 const topHeadRight = document.querySelector('.top-header_right');
 
 if (window.innerWidth <= 550) {
-	menuBody.appendChild(topHeadRight)
+	menuBody.appendChild(topHeadRight);
 }
 
 // Animation on scroll ============================================================
@@ -73,5 +67,5 @@ if (animItems.length > 0) {
 	}
 	setTimeout(() => {
 		animOnScroll();
-	}, 500);
+	}, 300);
 }
